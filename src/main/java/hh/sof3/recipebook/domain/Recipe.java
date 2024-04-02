@@ -32,8 +32,8 @@ public class Recipe {
         
     }
 
-    public Recipe(String name, String description, Meal meal,  Ingredient ingredient) {
-        this.name = name;
+    public Recipe(String recipeName, String description, Meal meal,  Ingredient ingredient) {
+        this.name = recipeName;
         this.description = description;
         this.ingredient = ingredient;
         this.meal = meal;

@@ -42,33 +42,34 @@
     <div class="container">
       <ul class="list-unstyled">
         <li class="media">
-          <img class="mr-3" th:src="@{img/resepti.jpg}" alt="Generic placeholder image">
+          <img class="mr-3" th:src="@{img/resepti.jpg}" alt="A food picture">
           <div class="media-body">
             <h5 class="mt-0 mb-1">Recipes</h5>
             Find new favorites!
             <br>
             <br>
-            <button type="button" class="btn btn-outline-secondary">Recipes</button>
+            <a class="btn btn-outline-secondary" th:href="@{/recipelist}">Recipes</a>
+            
           </div>
         </li>
         <li class="media my-4">
-          <img class="mr-3" th:src="@{img/aamupala.png}" alt="Generic placeholder image">
+          <img class="mr-3" th:src="@{img/aamupala.png}" alt="Another food picture">
           <div class="media-body">
             <h5 class="mt-0 mb-1">Meal types</h5>
             Browse recipes based on their meal types.
             <br>
             <br>
-            <button type="button" class="btn btn-outline-secondary"><a th:href=""></a></button>
+            <a class="btn btn-outline-secondary" th:href="@{/mealtypelist}">Meal types</a>
           </div>
         </li>
         <li class="media">
-          <img class="mr-3" th:src="@{img/ainesosa.png}" alt="Generic placeholder image">
+          <img class="mr-3" th:src="@{img/ainesosa.png}" alt="Spice">
           <div class="media-body">
             <h5 class="mt-0 mb-1">Ingredients</h5>
             Browse different ingredients and see what you can make with them!
             <br>
             <br>
-            <button type="button" class="btn btn-outline-secondary">Ingredients</button>
+            <a class="btn btn-outline-secondary" th:href="@{/ingredientlist}">Ingredients</a>
           </div>
         </li>
       </ul>

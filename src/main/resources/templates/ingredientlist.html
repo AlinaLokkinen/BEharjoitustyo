@@ -36,24 +36,27 @@
     <div class="text-center">
       <img th:src="@{img/banneri1.png}" alt="">
     </div>
-    
+    <br>
+    <div class="container">
+        <p>Click "view" to see different recipes for different ingredients!</p>
+
+    </div>    
     <br>
 
     <div class="container">
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Recipe #</th>
-            <th>Recipe name</th>
-            <th>Recipe link</th>
+            <th>Ingredient #</th>
+            <th>Ingredient name</th>
+            <th>Ingredient link</th>
           </tr>
 
           <tbody>
-            <tr th:each="recipe : ${recipes}">
-              <td scope="row" th:text="${recipe.recipeId}"></th>
-              <td scope="row" th:text="${recipe.name}"></td>
-              <td><a th:href="@{/viewrecipe/{id}(id=${recipe.recipeId})}">View</a></td>
-
+            <tr th:each="ingredients : ${ingredients}">
+              <td scope="row" th:text="${ingredients.ingredientId}"></th>
+              <td scope="row" th:text="${ingredients.name}"></td>
+              <td><a th:href="@{/viewingredients/{id}(id=${ingredients.ingredientId})}">View</a></td>
             </tr>
           </tbody>
         </thead>

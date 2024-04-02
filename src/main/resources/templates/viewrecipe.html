@@ -39,5 +39,18 @@
     
     <br>
 
+    <div class="container">
+      <table class="table">
+        <tr>
+          <th>Recipe name</th>
+          <th>Instructions</th>
+        </tr>
+        <tr th:each="r : ${recipe}">
+          <td th:text="${r.name}"></td>
+          <td th:text="${r.description}"> </td>
+        </tr>
+      </table>
+    </div>
+
   </body>
   </html>
