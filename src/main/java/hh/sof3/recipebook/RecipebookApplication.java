@@ -66,6 +66,8 @@ public class RecipebookApplication {
 
 			Recipe r7 = new Recipe("Tofu chocolate mousse", "Blend silken tofu, cocoa powder, and a sweetener like maple syrup or dates until smooth. Chill in the fridge for a couple of hours before serving. Optional: top with whipped coconut cream or shaved chocolate.", dessert, tofu);
 
+			Recipe r8 = new Recipe("Tofu scramble", "Crumble tofu into small pieces and mash with a potato masher. Cook in a pan with oil, stirring frequently.", breakfast, tofu);
+
 			recipeRepository.save(r1);
 			recipeRepository.save(r2);
 			recipeRepository.save(r3);
@@ -73,6 +75,7 @@ public class RecipebookApplication {
 			recipeRepository.save(r5);
 			recipeRepository.save(r6);
 			recipeRepository.save(r7);
+			recipeRepository.save(r8);
 
 			for (Recipe r : recipeRepository.findAll()) {
 				log.info(r.toString());

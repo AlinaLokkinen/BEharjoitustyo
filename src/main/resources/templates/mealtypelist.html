@@ -18,13 +18,10 @@
     <nav>
       <ul class="nav justify-content-center">
       <li class="nav-item">
-        <h1><a href="#">RecipeBook</a></h1>
+        <h1><a href="/index">RecipeBook</a></h1>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
     </ul>
   </nav>
@@ -51,15 +48,18 @@
             <th>Meal type name</th>
             <th>Meal type link</th>
           </tr>
-
+        </thead>
           <tbody>
             <tr th:each="meals : ${meals}">
               <td scope="row" th:text="${meals.mealId}"></th>
               <td scope="row" th:text="${meals.name}"></td>
               <td><a th:href="@{/viewmeals/{id}(id=${meals.mealId})}">View</a></td>
+              <!-- <td><a th:href="@{/editmeal/{id}(id=${meals.mealId})}">Edit </a></td>
+              <td><a th:href="@{/deletemeal/{id}(id=${meals.mealId})}" class="btn btn-outline-danger">Delete </a></td> -->
             </tr>
+            
           </tbody>
-        </thead>
+        
       </table>
     </div>
 

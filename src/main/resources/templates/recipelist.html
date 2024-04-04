@@ -18,13 +18,10 @@
     <nav>
       <ul class="nav justify-content-center">
       <li class="nav-item">
-        <h1><a href="#">RecipeBook</a></h1>
+        <h1><a href="/index">RecipeBook</a></h1>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
     </ul>
   </nav>
@@ -40,6 +37,9 @@
     <br>
 
     <div class="container">
+    <button>Add new recipe</button>
+    
+
       <table class="table table-hover">
         <thead>
           <tr>
@@ -53,6 +53,9 @@
               <td scope="row" th:text="${recipe.recipeId}"></th>
               <td scope="row" th:text="${recipe.name}"></td>
               <td><a th:href="@{/viewrecipe/{id}(id=${recipe.recipeId})}">View</a></td>
+              
+              <td><a th:href="@{/editrecipe/{id}(id=${recipe.recipeId})}">Edit </a></td>
+              <td><a th:href="@{/deleterecipe/{id}(id=${recipe.recipeId})}" class="btn btn-outline-danger">Delete </a></td>
 
             </tr>
           </tbody>
