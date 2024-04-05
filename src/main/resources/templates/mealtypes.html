@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="thymeleaf.org">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Types</title>
+    <title>Meal types</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bootstrap.css">
@@ -37,41 +37,41 @@
 <div class="container" sec:authorize="isAuthenticated()">
   <p>You are logged in as <span sec:authentication="name"></span></p>
 </div>
+   
     <br>
 
     <div class="text-center">
       <img th:src="@{img/banneri1.png}" alt="">
     </div>
-    <br>
-    <div class="container">
-        <p>Click "view" to see different recipes for different meals!</p>
-
-    </div>    
+    
     <br>
 
     <div class="container">
+      <a class="btn btn-outline-primary" th:href="@{/addmeal}" sec:authorize="hasAuthority('ADMIN')">Add new meal type</a>
+    
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Meal type #</th>
             <th>Meal type name</th>
             <th>Meal type link</th>
+            <th></th>
             <th sec:authorize="hasAuthority('ADMIN')"> </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr th:each="meals : ${meals}">
-            <td scope="row" th:text="${meals.mealId}"></th>
-            <td scope="row" th:text="${meals.name}"></td>
+          <tr th:each="meal : ${meals}">
+            <td scope="row" th:text="${meal.mealId}"></td>
+            <td scope="row" th:text="${meal.name}"></td>
             <td>
-              <a th:href="@{/viewmeals/{id}(id=${meals.mealId})}">View</a></td>
+              <a th:href="@{/viewmeals/{id}(id=${meal.mealId})}">View</a></td>
             
             <td sec:authorize="hasAuthority('ADMIN')">
-              <a th:href="@{/editmeal/{id}(id=${meals.mealId})}">Edit </a></td>
+              <a th:href="@{/editmeal/{id}(id=${meal.mealId})}">Edit </a></td>
             
               <td sec:authorize="hasAuthority('ADMIN')">
-              <a th:href="@{/deletemeal/{id}(id=${meals.mealId})}" class="btn btn-outline-danger">Delete </a></td>
+              <a th:href="@{/deletemeal/{id}(id=${meal.mealId})}" class="btn btn-outline-danger">Delete </a></td>
               
           </tr>
             

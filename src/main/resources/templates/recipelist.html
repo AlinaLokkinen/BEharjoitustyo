@@ -57,12 +57,13 @@
             <th></th>
             <th sec:authorize="hasAuthority('ADMIN')"> </th>
           </tr>
-
+        </thead>
           <tbody>
             <tr th:each="recipe : ${recipes}">
-              <td scope="row" th:text="${recipe.recipeId}"></th>
+              <td scope="row" th:text="${recipe.recipeId}"></td>
               <td scope="row" th:text="${recipe.name}"></td>
-              <td><a th:href="@{/viewrecipe/{id}(id=${recipe.recipeId})}">View</a></td>
+              <td>
+                <a th:href="@{/viewrecipe/{id}(id=${recipe.recipeId})}">View</a></td>
               
               <td sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/editrecipe/{id}(id=${recipe.recipeId})}">Edit </a></td>
@@ -71,7 +72,7 @@
 
             </tr>
           </tbody>
-        </thead>
+        
       </table>
     </div>
 

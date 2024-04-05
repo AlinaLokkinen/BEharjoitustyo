@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import hh.sof3.recipebook.domain.MealRepository;
 import hh.sof3.recipebook.domain.Recipe;
 import hh.sof3.recipebook.domain.RecipeRepository;
 
+@Controller
 public class MealController {
 
     @Autowired
@@ -50,18 +52,16 @@ public class MealController {
         return "redirect:/mealtypelist"; 
     }
 
-    // @RequestMapping(value = "/addrecipe", method = RequestMethod.GET)
-    // public String addNewRecipe(Model model) {
-    //     model.addAttribute("recipe", new Recipe());
-    //     model.addAttribute("ingredients", ingredientRepository.findAll());
-    //     model.addAttribute("meals", mealRepository.findAll());
-    //     return "addnewrecipe";
-    // }
+    @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
+    public String addNewMeal(Model model) {
+        model.addAttribute("meal", new Meal());
+        return "addnewmeal";
+    }
     
-    // @RequestMapping(value = "/saverecipe", method = RequestMethod.POST)
-    // public String saveRecipe(@ModelAttribute Recipe recipe) {
-    //     recipeRepository.save(recipe);
-    //     return "redirect:/recipelist";
-    // }
+    @RequestMapping(value = "/savemeal", method = RequestMethod.POST)
+    public String saveMeal(@ModelAttribute Meal meal) {
+        mealRepository.save(meal);
+        return "redirect:/mealtypes";
+    }
 
 }

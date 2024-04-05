@@ -62,7 +62,7 @@
 
           <tbody>
             <tr th:each="ingredients : ${ingredients}">
-              <td scope="row" th:text="${ingredients.ingredientId}"></th>
+              <td scope="row" th:text="${ingredients.ingredientId}"></td>
               <td scope="row" th:text="${ingredients.name}"></td>
               <td><a th:href="@{/viewingredients/{id}(id=${ingredients.ingredientId})}">View</a></td>
 
