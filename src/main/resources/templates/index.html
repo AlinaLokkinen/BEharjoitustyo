@@ -23,7 +23,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
-      <li>
+      <li sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">
           <input type="submit" value="Sign out" class="btn btn-outline-danger">
       </form>
@@ -32,8 +32,8 @@
   </nav>
 </div>
     
-<div class="container">
-  <p>Hello <span sec:authentication="name"></span></p>
+<div class="container" sec:authorize="isAuthenticated()">
+  <p>You are logged in as <span sec:authentication="name"></span></p>
 </div>
    
    
@@ -44,7 +44,6 @@
     </div>
     
     <br>
-
     <div class="container">
       <ul class="list-unstyled">
         <li class="media">
@@ -58,6 +57,7 @@
             
           </div>
         </li>
+
         <li class="media my-4">
           <img class="mr-3" th:src="@{img/aamupala.png}" alt="Another food picture">
           <div class="media-body">
@@ -65,9 +65,10 @@
             Browse recipes based on their meal types.
             <br>
             <br>
-            <a class="btn btn-outline-secondary" th:href="@{/mealtypelist}">Meal Types</a>
+            <a class="btn btn-outline-secondary" th:href="@{/mealtypes}">Meal Types</a>
           </div>
         </li>
+
         <li class="media">
           <img class="mr-3" th:src="@{img/ainesosa.png}" alt="Spice">
           <div class="media-body">

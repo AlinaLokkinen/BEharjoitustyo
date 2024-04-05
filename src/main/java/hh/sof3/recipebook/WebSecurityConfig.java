@@ -32,12 +32,6 @@ public class WebSecurityConfig {
                 .requestMatchers(antMatcher("/css/*")).permitAll()
                 .requestMatchers(antMatcher("/img/*")).permitAll()
                 .requestMatchers(toH2Console()).permitAll()
-                // .requestMatchers(antMatcher("/editmeal/*")).authenticated()
-                // .requestMatchers(antMatcher("/deletemeal/*")).authenticated()
-                // .requestMatchers(antMatcher("/editrecipe/*")).authenticated()
-                // .requestMatchers(antMatcher("/deleterecipe/*")).authenticated()
-                // .requestMatchers(antMatcher("/editingredient/*")).authenticated()
-                // .requestMatchers(antMatcher("/deleteingredient/*")).authenticated()
                 .anyRequest().permitAll()
     )
         .csrf(csrf -> csrf
