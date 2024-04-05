@@ -24,10 +24,17 @@
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
+      <li>
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" value="Sign out" class="btn btn-outline-danger">
+      </form>
+      </li>
     </ul>
   </nav>
 </div>
-    
+<div class="container">
+  <p>Hello <span sec:authentication="name"></span></p>
+</div>
    
     <br>
 

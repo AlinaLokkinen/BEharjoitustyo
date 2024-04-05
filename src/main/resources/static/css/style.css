@@ -15,6 +15,10 @@ img {
     
 }
 
+.nav {
+    margin-top: 10px;
+}
+
 .nav-link {
     color: black;
 }
@@ -27,11 +31,6 @@ nav a {
     opacity: 80%;
 }
 
-button {
-    color: #5f5b53; 
-    background-color: #d1cdc5;
-    border: 1px solid #6b6862;
-    border-radius: 3px;
-    padding: 5px;
+.btn-outline-primary {
     margin-bottom: 15px;
 }

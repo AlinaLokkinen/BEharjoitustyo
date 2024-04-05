@@ -31,6 +31,7 @@
     </ul>
   </nav>
 </div>
+
 <div class="container">
   <p>Hello <span sec:authentication="name"></span></p>
 </div>
@@ -44,24 +45,13 @@
     <br>
 
     <div class="container">
-        <form action="#" th:action="@{/saverecipe}" method="post" th:object="${recipe}">
-          <p>Recipe name: <input type="text" th:field="${recipe.name}"></p>
-          <p>Description: <input type="text" th:field="${recipe.description}"></p>
-          
-          <p>Main ingredient: <select id="ingrList" th:field="*{ingredient}">
-            <option th:each="ingredient : ${ingredients}" th:value="${ingredient.ingredientId}" th:text="${ingredient.name}">
-            </option></select>
-          </p>
-
-            <p>Meal type: <select id="mealTypeList" th:field="*{meal}">
-              <option th:each="meal : ${meals}" th:value="${meal.mealId}" th:text="${meal.name}">
-              </option></select>
-            </p>
-
+        <h2>Edit recipe</h2>
+        <form action="#" th:action="@{/saverecipe}" th:object="${recipe}" method="post">
+            <input type="hidden" th:field="*{recipeId}" />
+            <p>Recipe name: <input type="text" th:field="${recipe.name}" /></p>
+            
+            <p>Description: <textarea type="text" th:field="${recipe.description}" /></p>
             <input type="submit" value="Save" />
-
-
-          
         </form>
     </div>
 

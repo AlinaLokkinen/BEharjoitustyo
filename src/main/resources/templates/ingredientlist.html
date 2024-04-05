@@ -23,11 +23,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
+      <li>
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" value="Sign out" class="btn btn-outline-danger">
+      </form>
+      </li>
     </ul>
   </nav>
 </div>
     
-   
+<div class="container">
+  <p>Hello <span sec:authentication="name"></span></p>
+</div>
     <br>
 
     <div class="text-center">
@@ -41,12 +48,15 @@
     <br>
 
     <div class="container">
+      <a class="btn btn-outline-primary" th:href="@{/addingredient}" sec:authorize="hasAuthority('ADMIN')">Add new ingredient</a>
+
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Ingredient #</th>
             <th>Ingredient name</th>
             <th>Ingredient link</th>
+            <th sec:authorize="hasAuthority('ADMIN')"> </th>
           </tr>
 
           <tbody>
@@ -54,9 +64,14 @@
               <td scope="row" th:text="${ingredients.ingredientId}"></th>
               <td scope="row" th:text="${ingredients.name}"></td>
               <td><a th:href="@{/viewingredients/{id}(id=${ingredients.ingredientId})}">View</a></td>
-              <td><a th:href="@{/editingredient/{id}(id=${ingredients.ingredientId})}">Edit </a></td>
-              <td><a th:href="@{/deleteingredient/{id}(id=${ingredients.ingredientId})}" class="btn btn-outline-danger">Delete </a></td>
-            </tr>
+
+              <td sec:authorize="hasAuthority('ADMIN')">
+                <a th:href="@{/editingredient/{id}(id=${ingredients.ingredientId})}">Edit </a></td>
+
+              <td sec:authorize="hasAuthority('ADMIN')">
+                <a th:href="@{/deleteingredient/{id}(id=${ingredients.ingredientId})}" class="btn btn-outline-danger">Delete </a></td>
+            
+              </tr>
           </tbody>
         </thead>
       </table>
