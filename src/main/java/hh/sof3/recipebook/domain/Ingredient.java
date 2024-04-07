@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Ingredient {
@@ -17,6 +18,8 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long ingredientId;
+
+    @NotNull
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingredient")

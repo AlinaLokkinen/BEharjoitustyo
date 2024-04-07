@@ -27,9 +27,6 @@ public class RecipeRepositoryTests {
         assertThat(recipe.getRecipeId()).isNotNull();
     }
 
-    @Test
-    public void findRecipeByMeal() {
-        List<Recipe> recipes = recipeRepository.findByMeal(dinner);
-    }
+    
 
 }

@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hh.sof3.recipebook.domain.Meal;
 import hh.sof3.recipebook.domain.MealRepository;
-import hh.sof3.recipebook.domain.Recipe;
 import hh.sof3.recipebook.domain.RecipeRepository;
+
+import org.thymeleaf.util.Validate;
 
 @Controller
 public class MealController {

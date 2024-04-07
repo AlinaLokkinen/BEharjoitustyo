@@ -15,6 +15,7 @@ import hh.sof3.recipebook.domain.IngredientRepository;
 import hh.sof3.recipebook.domain.MealRepository;
 import hh.sof3.recipebook.domain.Recipe;
 import hh.sof3.recipebook.domain.RecipeRepository;
+import jakarta.validation.Valid;
 
 @Controller
 public class RecipeController {
@@ -76,7 +77,7 @@ public class RecipeController {
     }
     
     @RequestMapping(value = "/saverecipe", method = RequestMethod.POST)
-    public String saveRecipe(@ModelAttribute Recipe recipe) {
+    public String saveRecipe(@Valid @ModelAttribute Recipe recipe) {
         recipeRepository.save(recipe);
         return "redirect:/recipelist";
     }
