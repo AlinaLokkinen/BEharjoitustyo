@@ -46,22 +46,22 @@
 
     <div class="container">
         <form action="#" th:action="@{/saverecipe}" method="post" th:object="${recipe}">
-          <p>Recipe name: <input type="text" th:field="${recipe.name}"></p>
-          <p>Description: <input type="text" th:field="${recipe.description}"></p>
-          
-          <p>Main ingredient: <select id="ingrList" th:field="*{ingredient}">
-            <option th:each="ingredient : ${ingredients}" th:value="${ingredient.ingredientId}" th:text="${ingredient.name}">
-            </option></select>
-          </p>
+          <table>
+            <tr>
+              <td>Recipe name:  <input type="text" th:field="${recipe.name}" /></td>
+              <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</td>
+            </tr>
+            <tr>
+              <td>Description: <input type="text" th:field="${recipe.description}" /></td>
+            </tr>
+            <tr>
+              <p>Meal type: <select id="mealTypeList" th:field="*{meal}">
+                <option th:each="meal : ${meals}" th:value="${meal.mealId}" th:text="${meal.name}">
+                </option></select>
+            </tr>
+          </table>
 
-            <p>Meal type: <select id="mealTypeList" th:field="*{meal}">
-              <option th:each="meal : ${meals}" th:value="${meal.mealId}" th:text="${meal.name}">
-              </option></select>
-            </p>
-
-            <input type="submit" value="Save" />
-
-
+          <p><input type="submit" value="Save" /></p>
           
         </form>
     </div>

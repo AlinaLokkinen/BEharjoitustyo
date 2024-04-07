@@ -51,7 +51,7 @@
             <input type="hidden" th:field="*{recipeId}" />
             <p>Recipe name: <input type="text" th:field="${recipe.name}" /></p>
             
-            <p>Description: <textarea type="text" th:field="${recipe.description}" /></p>
+            <p>Description: <textarea type="text" th:field="${recipe.description}"></textarea></p>
             <input type="submit" value="Save" />
         </form>
     </div>

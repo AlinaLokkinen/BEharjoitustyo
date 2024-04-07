@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,8 +78,12 @@ public class RecipeController {
     }
     
     @RequestMapping(value = "/saverecipe", method = RequestMethod.POST)
-    public String saveRecipe(@Valid @ModelAttribute Recipe recipe) {
-        recipeRepository.save(recipe);
-        return "redirect:/recipelist";
+    public String saveRecipe(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addnewrecipe";
+        } else {
+            recipeRepository.save(recipe);
+            return "redirect:/recipelist";
+        }
     }
 }

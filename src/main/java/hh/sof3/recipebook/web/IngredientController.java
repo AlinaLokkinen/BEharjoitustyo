@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hh.sof3.recipebook.domain.Ingredient;
 import hh.sof3.recipebook.domain.IngredientRepository;
-import hh.sof3.recipebook.domain.Recipe;
 import hh.sof3.recipebook.domain.RecipeRepository;
+import jakarta.validation.Valid;
 
 @Controller
 public class IngredientController {
@@ -63,9 +64,13 @@ public class IngredientController {
     }
     
     @RequestMapping(value = "/saveingredient", method = RequestMethod.POST)
-    public String saveingredient(@ModelAttribute Ingredient ingredient) {
-        ingredientRepository.save(ingredient);
-        return "redirect:/ingredientlist";
+    public String saveingredient(@Valid @ModelAttribute("ingredient") Ingredient ingredient, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addnewingredient";
+        } else {
+            ingredientRepository.save(ingredient);
+            return "redirect:/ingredientlist";
+        }
     }
 
 

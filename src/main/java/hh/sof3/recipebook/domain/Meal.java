@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Meal {
@@ -19,7 +19,7 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long mealId;
 
-    @NotNull
+    @NotBlank
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "meal")

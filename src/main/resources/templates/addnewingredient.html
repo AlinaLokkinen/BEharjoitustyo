@@ -46,13 +46,13 @@
 
     <div class="container">
         <form action="#" th:action="@{/saveingredient}" method="post" th:object="${ingredient}">
-          <p>Ingredient name: <input type="text" th:field="${ingredient.name}"></p>
-          
-
-            <input type="submit" value="Save" />
-
-
-          
+          <table>
+            <tr>
+              <td>Ingredient name: <input type="text" th:field="${ingredient.name}" /></td>
+              <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</td>
+            </tr>
+          </table>           
+        <p> <input type="submit" value="Save" /></p>
         </form>
     </div>
 

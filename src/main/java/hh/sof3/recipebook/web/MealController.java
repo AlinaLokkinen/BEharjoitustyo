@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import hh.sof3.recipebook.domain.Meal;
 import hh.sof3.recipebook.domain.MealRepository;
 import hh.sof3.recipebook.domain.RecipeRepository;
+import jakarta.validation.Valid;
 
-import org.thymeleaf.util.Validate;
 
 @Controller
 public class MealController {
@@ -60,9 +61,13 @@ public class MealController {
     }
     
     @RequestMapping(value = "/savemeal", method = RequestMethod.POST)
-    public String saveMeal(@ModelAttribute Meal meal) {
-        mealRepository.save(meal);
-        return "redirect:/mealtypes";
+    public String saveMeal(@Valid @ModelAttribute Meal meal, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addnewmeal";
+        } else {
+            mealRepository.save(meal);
+            return "redirect:/mealtypes";
+        }
     }
 
 }
