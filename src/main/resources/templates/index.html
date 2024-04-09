@@ -21,7 +21,7 @@
         <h1><a href="/index">RecipeBook</a></h1>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" th:href="@{/login}">Login</a>
       </li>
       <li sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">

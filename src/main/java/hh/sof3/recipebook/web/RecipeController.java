@@ -86,4 +86,9 @@ public class RecipeController {
             return "redirect:/recipelist";
         }
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
 }

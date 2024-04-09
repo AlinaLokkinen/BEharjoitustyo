@@ -42,8 +42,9 @@ public class WebSecurityConfig {
                 .disable())
     )
         .formLogin(formlogin -> formlogin
-            .defaultSuccessUrl("/index", true)
-            .permitAll()
+            // .defaultSuccessUrl("/index", true)
+            // .permitAll()
+            .loginPage("/login").permitAll()
     )
         .logout(logout -> logout
             .permitAll()

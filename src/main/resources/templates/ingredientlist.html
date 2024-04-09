@@ -49,7 +49,7 @@
     <br>
 
     <div class="container">
-      <a class="btn btn-outline-primary" th:href="@{/addingredient}" sec:authorize="hasAuthority('ADMIN')">Add new ingredient</a>
+      <a class="btn btn-outline-primary" th:href="@{/addingredient}" sec:authorize="isAuthenticated()">Add new ingredient</a>
 
       <table class="table table-hover">
         <thead>

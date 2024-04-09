@@ -45,7 +45,7 @@
 
 
     <div class="container">
-      <a class="btn btn-outline-primary" th:href="@{/addrecipe}" sec:authorize="hasAuthority('ADMIN')">Add new recipe</a>
+      <a class="btn btn-outline-primary" th:href="@{/addrecipe}" sec:authorize="isAuthenticated()">Add new recipe</a>
     
 
       <table class="table table-hover">
