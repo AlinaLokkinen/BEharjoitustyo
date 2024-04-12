@@ -40,16 +40,18 @@ public class RecipeRepositoryTests {
     // delete a recipe
     @Test
     public void DeleteRecipe() {
-        Recipe recipe = recipeRepository.findById(Long.valueOf(1)).get();
+        Long id = recipeRepository.count() - 1;
+        Recipe recipe = recipeRepository.findById(Long.valueOf(id)).get();
         recipeRepository.delete(recipe);
-        Optional<Recipe> deleteRecipe = recipeRepository.findById(Long.valueOf(1));
+        Optional<Recipe> deleteRecipe = recipeRepository.findById(Long.valueOf(id));
         assertThat(deleteRecipe).isEmpty();
     }
 
     // find a recipe by a meal type
     @Test
     public void findRecipeByMealType() {
-        Meal meal = mealRepository.findById(Long.valueOf(1)).get();
+        Long id = mealRepository.count() - 1;
+        Meal meal = mealRepository.findById(Long.valueOf(id)).get();
         List<Recipe> recipes = recipeRepository.findByMeal(meal);
         assertThat(recipes).hasSizeGreaterThan(0);
     }
