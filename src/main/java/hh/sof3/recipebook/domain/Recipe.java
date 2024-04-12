@@ -20,6 +20,7 @@ public class Recipe {
     @NotBlank
     private String name;
     
+    @NotBlank
     private String description;
 
     @ManyToOne

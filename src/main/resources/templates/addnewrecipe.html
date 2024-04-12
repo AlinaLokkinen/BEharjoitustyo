@@ -53,17 +53,18 @@
             </tr>
             <tr>
               <td>Description: <input type="text" th:field="${recipe.description}" /></td>
+              <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Error</td>
             </tr>
             <tr>
               <td><p>Meal type: <select id="mealTypeList" th:field="*{meal}">
                 <option th:each="meal : ${meals}" th:value="${meal.mealId}" th:text="${meal.name}">
-                </option></select></td>
+                </option></select></p></td>
                 
             </tr>
             <tr>
               <td><p>Ingredient: <select id="ingredientList" th:field="*{ingredient}">
                 <option th:each="ingredient : ${ingredients}" th:value="${ingredient.ingredientId}" th:text="${ingredient.name}">
-                </option></select></td>
+                </option></select></p></td>
             </tr>
           </table>
 

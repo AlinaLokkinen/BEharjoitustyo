@@ -84,10 +84,10 @@ public class RecipebookApplication {
 			}
 
 			// somepassword
-			User u1 = new User("user", "$2a$10$1Di02.wMXe/DADxrDKw0COEYi.CVLLTWSo22ZXRkq4Nz0BOItireC", "USER");
+			User u1 = new User("alina", "$2a$10$1Di02.wMXe/DADxrDKw0COEYi.CVLLTWSo22ZXRkq4Nz0BOItireC", "USER");
 			
 			// anotherpassword
-			User u2 = new User("admin", "$2a$10$aEQF1v54/SDvZHwHQcPWqO9k1oNARBAq3uHNITW2PvWSbHklIcQZ.", "ADMIN");
+			User u2 = new User("adminAlina", "$2a$10$aEQF1v54/SDvZHwHQcPWqO9k1oNARBAq3uHNITW2PvWSbHklIcQZ.", "ADMIN");
 
 			userRepository.save(u1);
 			userRepository.save(u2);
