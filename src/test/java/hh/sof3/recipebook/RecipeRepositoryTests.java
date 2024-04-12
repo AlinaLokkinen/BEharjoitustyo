@@ -59,7 +59,8 @@ public class RecipeRepositoryTests {
     // find a recipe by an ingredient
     @Test
     public void findRecipeByIngredient() {
-        Ingredient ingredient = ingredientRepository.findById(Long.valueOf(1)).get();
+        Long id = mealRepository.count() - 1;
+        Ingredient ingredient = ingredientRepository.findById(Long.valueOf(id)).get();
         List<Recipe> recipes = recipeRepository.findByIngredient(ingredient);
         assertThat(recipes).hasSizeGreaterThan(0);
     }
